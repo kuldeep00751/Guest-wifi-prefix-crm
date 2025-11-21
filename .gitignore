@@ -1,0 +1,9 @@
+.git/
+uploads/
+**/logs/
+*.zip
+application/config/app-config.php
+application/config/migration.php
+**/__MACOSX
+temp/
+.DS_Store
