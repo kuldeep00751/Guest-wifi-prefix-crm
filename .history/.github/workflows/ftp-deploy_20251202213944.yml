@@ -1,0 +1,25 @@
+name: 🚀 FTP Deploy to Server
+
+on:
+  push:
+    branches:
+      - main   # Change to master if your repo uses master branch
+
+jobs:
+  ftp-deploy:
+    name: FTP Deploy Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to FTP Server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_REMOTE_PATH }}
+          local-dir: .
+          dangerous-clean-slate: false  # true = delete removed files on server
