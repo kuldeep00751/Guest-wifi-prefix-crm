@@ -140,7 +140,7 @@ class Projects extends AdminController
     }
 
     public function get_states()
-    {
+    {echo"sfdsdfsd";die;
         $country_id = $this->input->post('country_id');
 
         $states = $this->db->where('country_id', $country_id)
@@ -158,12 +158,14 @@ class Projects extends AdminController
 
     public function get_cities()
     {
+        echo"sfdsdfsd";die;
         $id_state = $this->input->post('id_state');
 
-        $cities = $this->db->where('state_id', $id_state)
+        $cities = $this->db->where('id_state', $id_state)
                         ->order_by('city', 'asc')
                         ->get(db_prefix() . 'cities')
                         ->result_array();
+
         $html = '<option value=""></option>';
         foreach ($cities as $city) {
             $html .= '<option value="'.$city['id_city'].'">'.$city['city'].'</option>';

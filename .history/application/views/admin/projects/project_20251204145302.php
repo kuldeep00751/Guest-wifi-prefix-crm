@@ -176,8 +176,8 @@
 
                         <div class="col-md-6">
                            <div class="form-group select-placeholder">
-                              <label for="id_state"><strong>State</strong></label>
-                              <select name="id_state" id="id_state" 
+                              <label for="state_id"><strong>State</strong></label>
+                              <select name="state_id" id="state_id" 
                                     class="selectpicker" data-width="100%" 
                                     data-live-search="true" 
                                     data-none-selected-text="Select State">
@@ -187,8 +187,8 @@
 
                         <div class="col-md-6">
                            <div class="form-group select-placeholder">
-                              <label for="id_city"><strong>City</strong></label>
-                              <select name="id_city" id="id_city" 
+                              <label for="city_id"><strong>City</strong></label>
+                              <select name="city_id" id="city_id" 
                                     class="selectpicker" data-width="100%" 
                                     data-live-search="true" 
                                     data-none-selected-text="Select City">
@@ -823,100 +823,93 @@
    });
 </script>
 <script>
-   document.addEventListener("DOMContentLoaded", function () {
-      function toggleBox(selectId, boxId) {
-         const selectEl = document.getElementById(selectId);
-         const boxEl = document.getElementById(boxId);
+document.addEventListener("DOMContentLoaded", function () {
+    function toggleBox(selectId, boxId) {
+        const selectEl = document.getElementById(selectId);
+        const boxEl = document.getElementById(boxId);
 
-         if (!selectEl || !boxEl) return;
+        if (!selectEl || !boxEl) return;
 
-         // Initial check on page load
-         boxEl.style.display = (selectEl.value === 'Yes') ? 'block' : 'none';
+        // Initial check on page load
+        boxEl.style.display = (selectEl.value === 'Yes') ? 'block' : 'none';
 
-         selectEl.addEventListener('change', function () {
-               boxEl.style.display = (this.value === 'Yes') ? 'block' : 'none';
-         });
-      }
+        selectEl.addEventListener('change', function () {
+            boxEl.style.display = (this.value === 'Yes') ? 'block' : 'none';
+        });
+    }
 
-      toggleBox('wifiRouter', 'wifiRouterSerialBox');
-      toggleBox('wirelessDevice', 'wirelessDeviceSerialBox');
-      toggleBox('modemOnu', 'modemOnuSerialBox');
-   });
+    toggleBox('wifiRouter', 'wifiRouterSerialBox');
+    toggleBox('wirelessDevice', 'wirelessDeviceSerialBox');
+    toggleBox('modemOnu', 'modemOnuSerialBox');
+});
 </script>
 <script>
-   <?php if (isset($project)) { ?>
-      var country_id = '<?= $project->country_id ?>';
-      var id_state = '<?= $project->id_state ?>';
-      var id_city = '<?= $project->id_city ?>';
-      const csrfName = "<?= $this->security->get_csrf_token_name(); ?>";
-      const csrfHash = "<?= $this->security->get_csrf_hash(); ?>";
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Load states when editing
+    <?php if (isset($project)) { ?>
+        loadStates(<?= $project->country_id ?>, <?= $project->state_id ?>);
+        loadCities(<?= $project->state_id ?>, <?= $project->city_id ?>);
     <?php } ?>
 
-   $(function () {
-      loadStates(country_id, id_state);
-      loadCities(id_state, id_city);
+    // Country change → Load states
+    document.getElementById("country_id").addEventListener("change", function () {
+        document.getElementById("city_id").innerHTML = "";
+        $('#city_id').selectpicker('refresh');
+        loadStates(this.value, null);
+    });
 
-      // Country change → Load states
-      document.getElementById("country_id").addEventListener("change", function () {
-         document.getElementById("id_city").innerHTML = "";
-         loadStates(this.value, null);
-      });
+    // State change → Load cities
+    document.getElementById("state_id").addEventListener("change", function () {
+        loadCities(this.value, null);
+    });
 
-      // State change → Load cities
-      document.getElementById("id_state").addEventListener("change", function () {
-         loadCities(this.value, null);
-      });
-
-      // Load States
-      // Load States
+    // Load States using fetch()
     function loadStates(country_id, selected_state) {
-
-        let formData = new URLSearchParams();
-        formData.append("country_id", country_id);
-        formData.append(csrfName, csrfHash);
 
         fetch("<?= admin_url('projects/get_states'); ?>", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formData.toString()
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "country_id=" + country_id
         })
         .then(response => response.text())
         .then(states => {
-            document.getElementById("id_state").innerHTML = states;
-            $('#id_state').selectpicker('refresh');
+            document.getElementById("state_id").innerHTML = states;
+            $('#state_id').selectpicker('refresh');
 
             if (selected_state) {
-                $('#id_state').selectpicker('val', selected_state);
+                document.getElementById("state_id").value = selected_state;
+                $('#state_id').selectpicker('refresh');
             }
         });
     }
 
-    // Load Cities
-    function loadCities(id_state, selected_city) {
-
-        let formData = new URLSearchParams();
-        formData.append("id_state", id_state);
-        formData.append(csrfName, csrfHash);
+    // Load Cities using fetch()
+    function loadCities(state_id, selected_city) {
 
         fetch("<?= admin_url('projects/get_cities'); ?>", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formData.toString()
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "state_id=" + state_id
         })
         .then(response => response.text())
         .then(cities => {
-            document.getElementById("id_city").innerHTML = cities;
-            $('#id_city').selectpicker('refresh');
+            document.getElementById("city_id").innerHTML = cities;
+            $('#city_id').selectpicker('refresh');
 
             if (selected_city) {
-                $('#id_city').selectpicker('val', selected_city);
+                document.getElementById("city_id").value = selected_city;
+                $('#city_id').selectpicker('refresh');
             }
         });
     }
 
-   });
+});
 </script>
-
 
 </body>
 </html>

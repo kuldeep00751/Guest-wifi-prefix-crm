@@ -844,21 +844,18 @@
    });
 </script>
 <script>
-   <?php if (isset($project)) { ?>
-      var country_id = '<?= $project->country_id ?>';
-      var id_state = '<?= $project->id_state ?>';
-      var id_city = '<?= $project->id_city ?>';
-      const csrfName = "<?= $this->security->get_csrf_token_name(); ?>";
-      const csrfHash = "<?= $this->security->get_csrf_hash(); ?>";
-    <?php } ?>
+   document.addEventListener("DOMContentLoaded", function () {
 
-   $(function () {
-      loadStates(country_id, id_state);
-      loadCities(id_state, id_city);
+      // Load states when editing
+      <?php if (isset($project)) { ?>
+         loadStates(<?= $project->country_id ?>, <?= $project->id_state ?>);
+         loadCities(<?= $project->id_state ?>, <?= $project->id_city ?>);
+      <?php } ?>
 
       // Country change → Load states
       document.getElementById("country_id").addEventListener("change", function () {
          document.getElementById("id_city").innerHTML = "";
+         $('#id_city').selectpicker('refresh');
          loadStates(this.value, null);
       });
 
@@ -867,56 +864,52 @@
          loadCities(this.value, null);
       });
 
-      // Load States
-      // Load States
-    function loadStates(country_id, selected_state) {
+      // Load States using fetch()
+      function loadStates(country_id, selected_state) {
 
-        let formData = new URLSearchParams();
-        formData.append("country_id", country_id);
-        formData.append(csrfName, csrfHash);
+         fetch("<?= admin_url('projects/get_states'); ?>", {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+               },
+               body: "country_id=" + country_id
+         })
+         .then(response => response.text())
+         .then(states => {
+               document.getElementById("id_state").innerHTML = states;
+               $('#id_state').selectpicker('refresh');
 
-        fetch("<?= admin_url('projects/get_states'); ?>", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formData.toString()
-        })
-        .then(response => response.text())
-        .then(states => {
-            document.getElementById("id_state").innerHTML = states;
-            $('#id_state').selectpicker('refresh');
+               if (selected_state) {
+                  document.getElementById("id_state").value = selected_state;
+                  $('#id_state').selectpicker('refresh');
+               }
+         });
+      }
 
-            if (selected_state) {
-                $('#id_state').selectpicker('val', selected_state);
-            }
-        });
-    }
+      // Load Cities using fetch()
+      function loadCities(id_state, selected_city) {
 
-    // Load Cities
-    function loadCities(id_state, selected_city) {
+         fetch("<?= admin_url('projects/get_cities'); ?>", {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+               },
+               body: "id_state=" + id_state
+         })
+         .then(response => response.text())
+         .then(cities => {
+               document.getElementById("id_city").innerHTML = cities;
+               $('#id_city').selectpicker('refresh');
 
-        let formData = new URLSearchParams();
-        formData.append("id_state", id_state);
-        formData.append(csrfName, csrfHash);
-
-        fetch("<?= admin_url('projects/get_cities'); ?>", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formData.toString()
-        })
-        .then(response => response.text())
-        .then(cities => {
-            document.getElementById("id_city").innerHTML = cities;
-            $('#id_city').selectpicker('refresh');
-
-            if (selected_city) {
-                $('#id_city').selectpicker('val', selected_city);
-            }
-        });
-    }
+               if (selected_city) {
+                  document.getElementById("id_city").value = selected_city;
+                  $('#id_city').selectpicker('refresh');
+               }
+         });
+      }
 
    });
 </script>
-
 
 </body>
 </html>

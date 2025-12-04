@@ -132,44 +132,7 @@ class Projects extends AdminController
         $data['staff']    = $this->staff_model->get('', ['active' => 1]);
 
         $data['title'] = $title;
-        
-        $data['countries'] = get_all_countries();
-        $data['states'] = [];
-        $data['cities'] = [];
         $this->load->view('admin/projects/project', $data);
-    }
-
-    public function get_states()
-    {
-        $country_id = $this->input->post('country_id');
-
-        $states = $this->db->where('country_id', $country_id)
-                        ->order_by('state', 'asc')
-                        ->get(db_prefix() . 'states')
-                        ->result_array();
-
-        $html = '<option value=""></option>';
-        foreach ($states as $state) {
-            $html .= '<option value="'.$state['id_state'].'">'.$state['state'].'</option>';
-        }
-
-        echo $html;
-    }
-
-    public function get_cities()
-    {
-        $id_state = $this->input->post('id_state');
-
-        $cities = $this->db->where('state_id', $id_state)
-                        ->order_by('city', 'asc')
-                        ->get(db_prefix() . 'cities')
-                        ->result_array();
-        $html = '<option value=""></option>';
-        foreach ($cities as $city) {
-            $html .= '<option value="'.$city['id_city'].'">'.$city['city'].'</option>';
-        }
-
-        echo $html;
     }
 
     public function gantt()

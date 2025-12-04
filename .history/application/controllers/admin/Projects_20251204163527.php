@@ -159,11 +159,12 @@ class Projects extends AdminController
     public function get_cities()
     {
         $id_state = $this->input->post('id_state');
-
-        $cities = $this->db->where('state_id', $id_state)
+print_r($id_state);die;
+        $cities = $this->db->where('id_state', $id_state)
                         ->order_by('city', 'asc')
                         ->get(db_prefix() . 'cities')
                         ->result_array();
+
         $html = '<option value=""></option>';
         foreach ($cities as $city) {
             $html .= '<option value="'.$city['id_city'].'">'.$city['city'].'</option>';

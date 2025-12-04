@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<?php init_head(); ?> 
+<?php init_head(); ?>
 <div id="wrapper">
    <div class="content">
       <?= form_open($this->uri->uri_string(), ['id' => 'project_form']); ?>
@@ -48,7 +48,7 @@
                             data-live-search="true"
                             data-width="100%"
                             data-none-selected-text="<?= _l('dropdown_non_selected_tex'); ?>">
-                            <option value="" <?= empty($selected) ? 'selected' : ''; ?>></option>
+
                             <?php 
                             $selected = isset($project) ? $project->project_type : ($project_type ?? '');
 
@@ -155,46 +155,6 @@
                               </select>
                            </div>
                         </div>
-                        <div class="col-md-6">
-                           <div class="form-group select-placeholder">
-                              <label for="country_id"><strong>Country</strong></label>
-                              <select name="country_id" id="country_id" 
-                                    class="selectpicker" data-width="100%" 
-                                    data-live-search="true" 
-                                    data-none-selected-text="Select Country">
-
-                                 <option value=""></option>
-                                 <?php foreach ($countries as $country) { ?>
-                                    <option value="<?= $country['country_id']; ?>"
-                                       <?php if (isset($project) && $project->country_id == $country['country_id']) echo 'selected'; ?>>
-                                       <?= $country['short_name']; ?>
-                                    </option>
-                                 <?php } ?>
-                              </select>
-                           </div>
-                        </div>
-
-                        <div class="col-md-6">
-                           <div class="form-group select-placeholder">
-                              <label for="id_state"><strong>State</strong></label>
-                              <select name="id_state" id="id_state" 
-                                    class="selectpicker" data-width="100%" 
-                                    data-live-search="true" 
-                                    data-none-selected-text="Select State">
-                              </select>
-                           </div>
-                        </div>
-
-                        <div class="col-md-6">
-                           <div class="form-group select-placeholder">
-                              <label for="id_city"><strong>City</strong></label>
-                              <select name="id_city" id="id_city" 
-                                    class="selectpicker" data-width="100%" 
-                                    data-live-search="true" 
-                                    data-none-selected-text="Select City">
-                              </select>
-                           </div>
-                        </div>
                      </div>
                      <?php if (isset($project) && project_has_recurring_tasks($project->id)) { ?>
                      <div class="alert alert-warning recurring-tasks-notice hide"></div>
@@ -292,15 +252,15 @@
                            <?= render_date_input('deadline', 'project_deadline', $value); ?>
                         </div>
                         <div class="col-md-6">
-                            <label for="project_status" class="control-label"><?= _l('project_status'); ?></label>
-                            <select id="project_status" name="project_status"
+                            <label for="project_type" class="control-label"><?= _l('project_type'); ?></label>
+                            <select id="project_type" name="project_type"
                                 class="selectpicker"
                                 data-live-search="true"
                                 data-width="100%"
                                 data-none-selected-text="<?= _l('dropdown_non_selected_tex'); ?>">
-                                <option value="" <?= empty($selected) ? 'selected' : ''; ?>></option>
+
                                 <?php 
-                                $selected = isset($project) ? $project->project_status : ($project_status ?? '');
+                                $selected = isset($project) ? $project->project_type : ($project_type ?? '');
 
                                 $types = [
                                     'active'        => 'Active',
@@ -308,7 +268,7 @@
                                     'suspend'       => 'Suspend',
                                     'hold'          => 'Hold'
                                 ];
-                                
+
                                 foreach ($types as $value => $label) {
                                     $sel = ($selected == $value) ? 'selected' : '';
                                     echo '<option value="'.$value.'" '.$sel.'>'.$label.'</option>';
@@ -320,7 +280,6 @@
                      <?php if (isset($project) && $project->date_finished != null && $project->status == 4) { ?>
                      <?= render_datetime_input('date_finished', 'project_completed_date', _dt($project->date_finished)); ?>
                      <?php } ?>
-                     
                      <div class="form-group">
                         <label for="tags" class="control-label"><i class="fa fa-tag" aria-hidden="true"></i>
                         <?= _l('tags'); ?></label>
@@ -330,68 +289,6 @@
                      </div>
                      <?php $rel_id_custom_field = (isset($project) ? $project->id : false); ?>
                      <?= render_custom_fields('projects', $rel_id_custom_field); ?>
-                     <div class="row">   
-                        <div class="col-md-12 form-group" style="background: #d6eaed8c;">
-                           <label for="hardwareDetails" class="control-label" style=" padding-top: 5px; font-size: 16px;">Hardware Details</label>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="hardwareConnectionType" class="control-label"><strong>Connection Type <span style="color:red">*</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                           <input type="radio" name="connection_type" value="air_fiber"
-                              <?= ($project->connection_type == 'air_fiber') ? 'checked' : '' ?>> Air Fiber
-
-                           <input type="radio" name="connection_type" value="lease_fiber"
-                              <?= ($project->connection_type == 'lease_fiber') ? 'checked' : '' ?>> Lease Fiber
-
-                           <input type="radio" name="connection_type" value="wireless_rf"
-                              <?= ($project->connection_type == 'wireless_rf') ? 'checked' : '' ?>> Wireless RF
-                           </label>
-                        </div>
-                        <div class="col-md-6 form-group">
-                           <label for="wifi_router" class="control-label"><?= _l('WiFi Router'); ?></label>
-                           <select id="wifiRouter" name="wifi_router" class="form-control selectpicker"
-                              data-none-selected-text="<?= _l('dropdown_non_selected_tex'); ?>" data-width="100%" data-live-search="true">
-                              <option value="No" <?= ($project->wifi_router == 'No') ? 'selected' : '' ?>>No</option>
-                              <option value="Yes" <?= ($project->wifi_router == 'Yes') ? 'selected' : '' ?>>Yes</option>
-                           </select>
-                        </div>
-                        <div class="col-md-6 form-group" id="wifiRouterSerialBox" style="display: none;">
-                           <label for="wifi_router" class="control-label"><?= _l('WiFi Router Serial Number'); ?></label>
-                           <input type="text" class="form-control" name="wifi_router_serial" value="<?= $project->wifi_router_serial ?>">
-                        </div>
-                        
-                        <div class="col-md-6 form-group">
-                           <label for="wifi_router" class="control-label"><?= _l('Wireless Device'); ?></label>
-                           <select id="wirelessDevice" name="wireless_device" class="form-control selectpicker"
-                              data-none-selected-text="<?= _l('dropdown_non_selected_tex'); ?>" data-width="100%" data-live-search="true">
-                              <option value="No" <?= ($project->wireless_device == 'No') ? 'selected' : '' ?>>No</option>
-                              <option value="Yes" <?= ($project->wireless_device == 'Yes') ? 'selected' : '' ?>>Yes</option>
-                           </select>
-                        </div>
-                        <div class="col-md-6 form-group" id="wirelessDeviceSerialBox" style="display: none;">
-                           <label for="wifi_router" class="control-label"><?= _l('Wireless Device Serial Number'); ?></label>
-                           <input type="text" class="form-control" name="wireless_device_serial" placeholder="Enter Serial Number" value="<?= $project->wireless_device_serial ?>">
-                        </div>
-
-
-                        <div class="col-md-6 form-group">
-                           <label for="modemOnu" class="control-label"><?= _l('Modem/ONU'); ?></label>
-                           <select id="modemOnu" name="modem_onu" class="form-control selectpicker"
-                              data-none-selected-text="<?= _l('dropdown_non_selected_tex'); ?>" data-width="100%" data-live-search="true">
-                              <option value="No" <?= ($project->modem_onu == 'No') ? 'selected' : '' ?>>No</option>
-                              <option value="Yes" <?= ($project->modem_onu == 'Yes') ? 'selected' : '' ?>>Yes</option>
-                           </select>
-                        </div>
-                        <div class="col-md-6 form-group" id="modemOnuSerialBox" style="display: none;">
-                           <label for="wifi_router" class="control-label"><?= _l('Wireless Device Serial Number'); ?></label>
-                           <input type="text" class="form-control" name="modem_onu_serial" placeholder="Enter Serial Number" value="<?= $project->modem_onu_serial ?>">
-                        </div>
-
-                        <div class="col-md-6 form-group" id="modemOnuSerialBox" style="display: none;">
-                           <label for="cable_length" class="control-label"><?= _l('Fiber / CAT6 Length (meters)'); ?></label>
-                           <input type="number" class="form-control" name="cable_length" placeholder="Enter length in meters" value="<?= $project->cable_length ?>">
-                        </div>
-
-                     </div>
                      <p class="bold">
                         <?= _l('project_description'); ?>
                      </p>
@@ -407,7 +304,6 @@
                      </h5>
                      <input type="hidden" name="estimate_id"
                         value="<?= $estimate->id ?>">
-                     
                      <div class="row">
                         <?php foreach ($estimate->items as $item) { ?>
                         <div class="col-md-8 border-right">
@@ -443,7 +339,6 @@
                            for="send_created_email"><?= _l('project_send_created_email'); ?></label>
                      </div>
                      <?php } ?>
-                     
                   </div>
                   <div role="tabpanel" class="tab-pane" id="tab_settings">
                      <div id="project-settings-area">
@@ -822,101 +717,5 @@
        <?php } ?>
    });
 </script>
-<script>
-   document.addEventListener("DOMContentLoaded", function () {
-      function toggleBox(selectId, boxId) {
-         const selectEl = document.getElementById(selectId);
-         const boxEl = document.getElementById(boxId);
-
-         if (!selectEl || !boxEl) return;
-
-         // Initial check on page load
-         boxEl.style.display = (selectEl.value === 'Yes') ? 'block' : 'none';
-
-         selectEl.addEventListener('change', function () {
-               boxEl.style.display = (this.value === 'Yes') ? 'block' : 'none';
-         });
-      }
-
-      toggleBox('wifiRouter', 'wifiRouterSerialBox');
-      toggleBox('wirelessDevice', 'wirelessDeviceSerialBox');
-      toggleBox('modemOnu', 'modemOnuSerialBox');
-   });
-</script>
-<script>
-   <?php if (isset($project)) { ?>
-      var country_id = '<?= $project->country_id ?>';
-      var id_state = '<?= $project->id_state ?>';
-      var id_city = '<?= $project->id_city ?>';
-      const csrfName = "<?= $this->security->get_csrf_token_name(); ?>";
-      const csrfHash = "<?= $this->security->get_csrf_hash(); ?>";
-    <?php } ?>
-
-   $(function () {
-      loadStates(country_id, id_state);
-      loadCities(id_state, id_city);
-
-      // Country change → Load states
-      document.getElementById("country_id").addEventListener("change", function () {
-         document.getElementById("id_city").innerHTML = "";
-         loadStates(this.value, null);
-      });
-
-      // State change → Load cities
-      document.getElementById("id_state").addEventListener("change", function () {
-         loadCities(this.value, null);
-      });
-
-      // Load States
-      // Load States
-    function loadStates(country_id, selected_state) {
-
-        let formData = new URLSearchParams();
-        formData.append("country_id", country_id);
-        formData.append(csrfName, csrfHash);
-
-        fetch("<?= admin_url('projects/get_states'); ?>", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formData.toString()
-        })
-        .then(response => response.text())
-        .then(states => {
-            document.getElementById("id_state").innerHTML = states;
-            $('#id_state').selectpicker('refresh');
-
-            if (selected_state) {
-                $('#id_state').selectpicker('val', selected_state);
-            }
-        });
-    }
-
-    // Load Cities
-    function loadCities(id_state, selected_city) {
-
-        let formData = new URLSearchParams();
-        formData.append("id_state", id_state);
-        formData.append(csrfName, csrfHash);
-
-        fetch("<?= admin_url('projects/get_cities'); ?>", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formData.toString()
-        })
-        .then(response => response.text())
-        .then(cities => {
-            document.getElementById("id_city").innerHTML = cities;
-            $('#id_city').selectpicker('refresh');
-
-            if (selected_city) {
-                $('#id_city').selectpicker('val', selected_city);
-            }
-        });
-    }
-
-   });
-</script>
-
-
 </body>
 </html>

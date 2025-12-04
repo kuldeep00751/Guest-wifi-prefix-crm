@@ -851,7 +851,7 @@
       const csrfName = "<?= $this->security->get_csrf_token_name(); ?>";
       const csrfHash = "<?= $this->security->get_csrf_hash(); ?>";
     <?php } ?>
-
+alert(csrfHash);
    $(function () {
       loadStates(country_id, id_state);
       loadCities(id_state, id_city);

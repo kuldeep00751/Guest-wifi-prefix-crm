@@ -127,7 +127,6 @@ $autoload['helper'] = [
         'emails_tracking',
         'staff',
         'countries',
-        'state_city_helper',
         'payment_gateways',
         'general',
         'misc',

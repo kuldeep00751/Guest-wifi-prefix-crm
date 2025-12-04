@@ -874,7 +874,7 @@
         let formData = new URLSearchParams();
         formData.append("country_id", country_id);
         formData.append(csrfName, csrfHash);
-
+alert(formData);
         fetch("<?= admin_url('projects/get_states'); ?>", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },

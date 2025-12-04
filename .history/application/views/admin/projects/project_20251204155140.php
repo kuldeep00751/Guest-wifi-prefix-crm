@@ -844,77 +844,10 @@
    });
 </script>
 <script>
-   <?php if (isset($project)) { ?>
-      var country_id = '<?= $project->country_id ?>';
-      var id_state = '<?= $project->id_state ?>';
-      var id_city = '<?= $project->id_city ?>';
-      const csrfName = "<?= $this->security->get_csrf_token_name(); ?>";
-      const csrfHash = "<?= $this->security->get_csrf_hash(); ?>";
-    <?php } ?>
-
-   $(function () {
-      loadStates(country_id, id_state);
-      loadCities(id_state, id_city);
-
-      // Country change → Load states
-      document.getElementById("country_id").addEventListener("change", function () {
-         document.getElementById("id_city").innerHTML = "";
-         loadStates(this.value, null);
-      });
-
-      // State change → Load cities
-      document.getElementById("id_state").addEventListener("change", function () {
-         loadCities(this.value, null);
-      });
-
-      // Load States
-      // Load States
-    function loadStates(country_id, selected_state) {
-
-        let formData = new URLSearchParams();
-        formData.append("country_id", country_id);
-        formData.append(csrfName, csrfHash);
-
-        fetch("<?= admin_url('projects/get_states'); ?>", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formData.toString()
-        })
-        .then(response => response.text())
-        .then(states => {
-            document.getElementById("id_state").innerHTML = states;
-            $('#id_state').selectpicker('refresh');
-
-            if (selected_state) {
-                $('#id_state').selectpicker('val', selected_state);
-            }
-        });
-    }
-
-    // Load Cities
-    function loadCities(id_state, selected_city) {
-
-        let formData = new URLSearchParams();
-        formData.append("id_state", id_state);
-        formData.append(csrfName, csrfHash);
-
-        fetch("<?= admin_url('projects/get_cities'); ?>", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formData.toString()
-        })
-        .then(response => response.text())
-        .then(cities => {
-            document.getElementById("id_city").innerHTML = cities;
-            $('#id_city').selectpicker('refresh');
-
-            if (selected_city) {
-                $('#id_city').selectpicker('val', selected_city);
-            }
-        });
-    }
-
-   });
+$(function () {
+   alert('djkshgk');
+   
+});
 </script>
 
 

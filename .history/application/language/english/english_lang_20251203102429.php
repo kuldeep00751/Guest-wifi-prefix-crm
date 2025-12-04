@@ -2054,7 +2054,6 @@ $lang['project_name']                                        = 'Project Name';
 $lang['project_description']                                 = 'Description';
 $lang['project_customer']                                    = 'Customer';
 $lang['project_type']                                        = 'Project Type';
-$lang['project_status']                                        = 'Project Status';
 $lang['project_start_date']                                  = 'Start Date';
 $lang['project_datecreated']                                 = 'Date Created';
 $lang['project_deadline']                                    = 'Deadline';
