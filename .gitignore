@@ -7,3 +7,4 @@ application/config/migration.php
 **/__MACOSX
 temp/
 .DS_Store
+.history/
