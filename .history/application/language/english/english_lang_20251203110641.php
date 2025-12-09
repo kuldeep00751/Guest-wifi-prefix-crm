@@ -353,24 +353,6 @@ $lang['service_lowercase']     = 'service';
 $lang['services_dt_name']      = 'Service Name';
 $lang['service_add_edit_name'] = 'Service Name';
 
-# Project Type
-$lang['new_project_type']           = 'New Project Type';
-$lang['project_types']              = 'Project Types';
-$lang['project_type']               = 'Project Types';
-$lang['project_type_lowercase']     = 'Project Types';
-$lang['project_types_dt_name']      = 'Project Type Name';
-$lang['project_type_add_edit_name'] = 'Project Type Name';
-$lang['project_type_edit']  = 'Edit Project Type';
-
-# Project Type
-$lang['new_project_status']           = 'New Project Status';
-$lang['project_status']              = 'Project Status';
-$lang['project_status']               = 'Project Status';
-$lang['project_status_lowercase']     = 'Project Status';
-$lang['project_statuss_dt_name']      = 'Project Status Name';
-$lang['project_status_add_edit_name'] = 'Project Status Name';
-$lang['project_status_edit']  = 'Edit Project Status';
-
 # Settings
 $lang['settings']                                                  = 'Settings';
 $lang['settings_updated']                                          = 'Settings Updated';
@@ -544,8 +526,6 @@ $lang['acs_ticket_statuses_submenu']           = 'Ticket Statuses';
 $lang['acs_ticket_predefined_replies_submenu'] = 'Predefined Replies';
 $lang['acs_ticket_services_submenu']           = 'Services';
 $lang['acs_departments']                       = 'Departments';
-$lang['acs_project_types_submenu']           = 'Project types';
-$lang['acs_project_statuses_submenu']           = 'Project Statuses';
 $lang['acs_leads']                             = 'Leads';
 $lang['acs_leads_sources_submenu']             = 'Sources';
 $lang['acs_leads_statuses_submenu']            = 'Statuses';

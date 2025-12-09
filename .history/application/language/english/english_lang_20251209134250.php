@@ -359,8 +359,8 @@ $lang['project_types']              = 'Project Types';
 $lang['project_type']               = 'Project Types';
 $lang['project_type_lowercase']     = 'Project Types';
 $lang['project_types_dt_name']      = 'Project Type Name';
-$lang['project_type_add_edit_name'] = 'Project Type Name';
-$lang['project_type_edit']  = 'Edit Project Type';
+$lang['project_type_add_edit_name'] = 'Project Types Name';
+$lang['project_type_edit']  = 'Edit Project Types';
 
 # Project Type
 $lang['new_project_status']           = 'New Project Status';
@@ -369,7 +369,6 @@ $lang['project_status']               = 'Project Status';
 $lang['project_status_lowercase']     = 'Project Status';
 $lang['project_statuss_dt_name']      = 'Project Status Name';
 $lang['project_status_add_edit_name'] = 'Project Status Name';
-$lang['project_status_edit']  = 'Edit Project Status';
 
 # Settings
 $lang['settings']                                                  = 'Settings';

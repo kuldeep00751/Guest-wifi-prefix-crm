@@ -354,22 +354,20 @@ $lang['services_dt_name']      = 'Service Name';
 $lang['service_add_edit_name'] = 'Service Name';
 
 # Project Type
-$lang['new_project_type']           = 'New Project Type';
-$lang['project_types']              = 'Project Types';
-$lang['project_type']               = 'Project Types';
-$lang['project_type_lowercase']     = 'Project Types';
-$lang['project_types_dt_name']      = 'Project Type Name';
-$lang['project_type_add_edit_name'] = 'Project Type Name';
-$lang['project_type_edit']  = 'Edit Project Type';
+$lang['new_project_type']           = 'New project_type';
+$lang['project_types']              = 'project_types';
+$lang['project_type']               = 'project_type';
+$lang['project_type_lowercase']     = 'project_type';
+$lang['project_types_dt_name']      = 'project_type Name';
+$lang['project_type_add_edit_name'] = 'project_type Name';
 
 # Project Type
-$lang['new_project_status']           = 'New Project Status';
-$lang['project_status']              = 'Project Status';
-$lang['project_status']               = 'Project Status';
-$lang['project_status_lowercase']     = 'Project Status';
-$lang['project_statuss_dt_name']      = 'Project Status Name';
-$lang['project_status_add_edit_name'] = 'Project Status Name';
-$lang['project_status_edit']  = 'Edit Project Status';
+$lang['new_project_status']           = 'New project_status';
+$lang['project_status']              = 'project_status';
+$lang['project_status']               = 'project_status';
+$lang['project_status_lowercase']     = 'project_status';
+$lang['project_statuss_dt_name']      = 'project_status Name';
+$lang['project_status_add_edit_name'] = 'project_status Name';
 
 # Settings
 $lang['settings']                                                  = 'Settings';

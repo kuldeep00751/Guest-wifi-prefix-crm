@@ -418,7 +418,7 @@ function app_init_admin_sidebar_menu_items()
         $CI->app_menu->add_setup_children_item('project-master', [
             'slug'     => 'project-statuses',
             'name'     => _l('acs_project_statuses_submenu'),
-            'href'     => admin_url('ProjectMaster/project_statuses'),
+            'href'     => admin_url('ProjectMaster/project_status'),
             'position' => 35,
             'badge'    => [],
         ]);

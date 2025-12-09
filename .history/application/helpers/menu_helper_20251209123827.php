@@ -418,14 +418,14 @@ function app_init_admin_sidebar_menu_items()
         $CI->app_menu->add_setup_children_item('project-master', [
             'slug'     => 'project-statuses',
             'name'     => _l('acs_project_statuses_submenu'),
-            'href'     => admin_url('ProjectMaster/project_statuses'),
+            'href'     => admin_url('project-master/project_status'),
             'position' => 35,
             'badge'    => [],
         ]);
         $CI->app_menu->add_setup_children_item('project-master', [
             'slug'     => 'project-types',
             'name'     => _l('acs_project_types_submenu'),
-            'href'     => admin_url('ProjectMaster/project_types'),
+            'href'     => admin_url('project-master/project-type'),
             'position' => 40,
             'badge'    => [],
         ]);

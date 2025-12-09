@@ -364,13 +364,6 @@ function app_init_admin_sidebar_menu_items()
             'badge'    => [],
         ]);
 
-        $CI->app_menu->add_setup_menu_item('project-master', [
-            'collapse' => true,
-            'name'     => _l('Project Master'),
-            'position' => 15,
-            'badge'    => [],
-        ]);
-
         $CI->app_menu->add_setup_children_item('support', [
             'slug'     => 'departments',
             'name'     => _l('acs_departments'),
@@ -415,17 +408,17 @@ function app_init_admin_sidebar_menu_items()
             'badge'    => [],
         ]);
 
-        $CI->app_menu->add_setup_children_item('project-master', [
+        $CI->app_menu->add_setup_children_item('support', [
             'slug'     => 'project-statuses',
             'name'     => _l('acs_project_statuses_submenu'),
-            'href'     => admin_url('ProjectMaster/project_statuses'),
+            'href'     => admin_url('projectstatus/status'),
             'position' => 35,
             'badge'    => [],
         ]);
-        $CI->app_menu->add_setup_children_item('project-master', [
+        $CI->app_menu->add_setup_children_item('support', [
             'slug'     => 'project-types',
             'name'     => _l('acs_project_types_submenu'),
-            'href'     => admin_url('ProjectMaster/project_types'),
+            'href'     => admin_url('projecttype/type'),
             'position' => 40,
             'badge'    => [],
         ]);

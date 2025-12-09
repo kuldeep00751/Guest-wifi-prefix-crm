@@ -353,24 +353,6 @@ $lang['service_lowercase']     = 'service';
 $lang['services_dt_name']      = 'Service Name';
 $lang['service_add_edit_name'] = 'Service Name';
 
-# Project Type
-$lang['new_project_type']           = 'New Project Type';
-$lang['project_types']              = 'Project Types';
-$lang['project_type']               = 'Project Types';
-$lang['project_type_lowercase']     = 'Project Types';
-$lang['project_types_dt_name']      = 'Project Type Name';
-$lang['project_type_add_edit_name'] = 'Project Type Name';
-$lang['project_type_edit']  = 'Edit Project Type';
-
-# Project Type
-$lang['new_project_status']           = 'New Project Status';
-$lang['project_status']              = 'Project Status';
-$lang['project_status']               = 'Project Status';
-$lang['project_status_lowercase']     = 'Project Status';
-$lang['project_statuss_dt_name']      = 'Project Status Name';
-$lang['project_status_add_edit_name'] = 'Project Status Name';
-$lang['project_status_edit']  = 'Edit Project Status';
-
 # Settings
 $lang['settings']                                                  = 'Settings';
 $lang['settings_updated']                                          = 'Settings Updated';

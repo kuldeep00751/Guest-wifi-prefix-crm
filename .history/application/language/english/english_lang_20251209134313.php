@@ -369,7 +369,6 @@ $lang['project_status']               = 'Project Status';
 $lang['project_status_lowercase']     = 'Project Status';
 $lang['project_statuss_dt_name']      = 'Project Status Name';
 $lang['project_status_add_edit_name'] = 'Project Status Name';
-$lang['project_status_edit']  = 'Edit Project Status';
 
 # Settings
 $lang['settings']                                                  = 'Settings';
