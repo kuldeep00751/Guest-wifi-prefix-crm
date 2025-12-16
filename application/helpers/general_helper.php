@@ -330,7 +330,7 @@ function get_current_date_format($php = false)
  */
 function is_logged_in()
 {
-    return is_client_logged_in() || is_staff_logged_in();
+    return is_client_logged_in() || is_staff_logged_in() || is_operator_logged_in();
 }
 /**
  * Is client logged in
@@ -340,6 +340,16 @@ function is_logged_in()
 function is_client_logged_in()
 {
     return get_instance()->session->has_userdata('client_logged_in');
+}
+
+/**
+ * Is operator logged in
+ *
+ * @return bool
+ */
+function is_operator_logged_in()
+{
+    return get_instance()->session->has_userdata('operator_logged_in');
 }
 /**
  * Is staff logged in

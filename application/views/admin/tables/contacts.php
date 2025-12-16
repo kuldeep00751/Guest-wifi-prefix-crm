@@ -2,7 +2,17 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-$total_client_contacts = total_rows(db_prefix() . 'contacts', ['userid' => $client_id]);
+if (isset($client_id) && isset($usertype)) {
+    $total_client_contacts = total_rows(db_prefix().'contacts', [
+        'userid'   => $client_id,
+        'usertype' => $usertype,
+    ]);
+} else {
+    $total_client_contacts = total_rows(db_prefix().'contacts', [
+        'userid' => $client_id,
+    ]);
+}
+
 $this->ci->load->model('gdpr_model');
 
 $consentContacts = get_option('gdpr_enable_consent_for_contacts');
@@ -32,7 +42,9 @@ foreach ($custom_fields as $key => $field) {
 }
 
 $where = ['AND userid=' . $this->ci->db->escape_str($client_id)];
-
+if (!empty($usertype)) {
+    $where[] = 'AND usertype = ' . $this->ci->db->escape($usertype);
+}
 // Fix for big queries. Some hosting have max_join_limit
 if (count($custom_fields) > 4) {
     @$this->ci->db->query('SET SQL_BIG_SELECTS=1');
@@ -42,6 +54,12 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [db
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
+
+$baseUrl = 'clients';
+
+if (isset($usertype) && $usertype === 'operators') {
+    $baseUrl = 'operators';
+}
 
 foreach ($rResult as $aRow) {
     $row = [];
@@ -53,14 +71,14 @@ foreach ($rResult as $aRow) {
     $rowName .= '<a href="#" onclick="contact(' . $aRow['userid'] . ',' . $aRow['id'] . ');return false;">' . _l('edit') . '</a>';
 
     if (is_gdpr() && get_option('gdpr_data_portability_contacts') == '1' && is_admin()) {
-        $rowName .= ' | <a href="' . admin_url('clients/export/' . $aRow['id']) . '">
+        $rowName .= ' | <a href="' . admin_url($baseUrl .'/export/' . $aRow['id']) . '">
              ' . _l('dt_button_export') . ' (' . _l('gdpr_short') . ')
           </a>';
     }
 
     if (staff_can('delete',  'customers') || is_customer_admin($aRow['userid'])) {
         if ($aRow['is_primary'] == 0 || ($aRow['is_primary'] == 1 && $total_client_contacts == 1)) {
-            $rowName .= ' | <a href="' . admin_url('clients/delete_contact/' . $aRow['userid'] . '/' . $aRow['id']) . '" class="_delete">' . _l('delete') . '</a>';
+            $rowName .= ' | <a href="' . admin_url($baseUrl .'/delete_contact/' . $aRow['userid'] . '/' . $aRow['id']) . '" class="_delete">' . _l('delete') . '</a>';
         }
     }
 
@@ -85,7 +103,7 @@ foreach ($rResult as $aRow) {
     $row[] = '<a href="tel:' . e($aRow['phonenumber']) . '">' . e($aRow['phonenumber']) . '</a>';
 
     $outputActive = '<div class="onoffswitch">
-                <input type="checkbox"' . (total_rows(db_prefix() . 'clients', 'registration_confirmed=0 AND userid=' . $aRow['userid']) > 0 ? ' disabled' : '') . ' data-switch-url="' . admin_url() . 'clients/change_contact_status" name="onoffswitch" class="onoffswitch-checkbox" id="c_' . $aRow['id'] . '" data-id="' . $aRow['id'] . '"' . ($aRow['active'] == 1 ? ' checked': '') . '>
+                <input type="checkbox"' . (total_rows(db_prefix() . 'clients', 'registration_confirmed=0 AND userid=' . $aRow['userid']) > 0 ? ' disabled' : '') . ' data-switch-url="' . admin_url($baseUrl . '/change_contact_status') . '" name="onoffswitch" class="onoffswitch-checkbox" id="c_' . $aRow['id'] . '" data-id="' . $aRow['id'] . '"' . ($aRow['active'] == 1 ? ' checked': '') . '>
                 <label class="onoffswitch-label" for="c_' . $aRow['id'] . '"></label>
             </div>';
     // For exporting

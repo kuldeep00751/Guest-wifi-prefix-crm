@@ -57,6 +57,7 @@ $lang['announcement_name']            = 'Subject';
 $lang['announcement_message']         = 'Message';
 $lang['announcement_show_to_staff']   = 'Show to staff';
 $lang['announcement_show_to_clients'] = 'Show to clients';
+$lang['announcement_show_to_operators'] = 'Show to Operators';
 $lang['announcement_show_my_name']    = 'Show my name';
 
 # Clients
@@ -88,6 +89,42 @@ $lang['clients_notes_table_addedfrom_heading']   = 'Added From';
 $lang['clients_notes_table_dateadded_heading']   = 'Date Added';
 $lang['clients_list_full_name']                  = 'Full Name';
 $lang['clients_list_last_login']                 = 'Last Login';
+$lang['operator_do_not_send_welcome_email']        = 'Do not send welcome email';
+$lang['operators_notes_table_description_heading'] = 'Description';
+$lang['operators_notes_table_addedfrom_heading']   = 'Added From';
+$lang['operators_notes_table_dateadded_heading']   = 'Date Added';
+$lang['operators_list_full_name']                  = 'Full Name';
+$lang['operators_list_last_login']                 = 'Last Login';
+
+# operators
+$lang['operators']                                 = 'Operators';
+$lang['operator']                                  = 'Operator';
+$lang['new_operator']                              = 'New Operator';
+$lang['operator_lowercase']                        = 'Operator';
+$lang['operator_firstname']                        = 'First Name';
+$lang['operator_lastname']                         = 'Last Name';
+$lang['operator_email']                            = 'Email';
+$lang['operator_company']                          = 'Company';
+$lang['operator_vat_number']                       = 'VAT Number';
+$lang['operator_address']                          = 'Address';
+$lang['operator_city']                             = 'City';
+$lang['operator_postal_code']                      = 'Zip Code';
+$lang['operator_state']                            = 'State';
+$lang['operator_password']                         = 'Password';
+$lang['operator_password_change_populate_note']    = 'Note: if you populate this field, password will be changed on this contact.';
+$lang['operator_password_last_changed']            = 'Password last changed:';
+$lang['login_as_operator']                         = 'Login as operator';
+$lang['operator_invoices_tab']                     = 'Invoices';
+$lang['contracts_invoices_tab']                  = 'Contracts';
+$lang['contracts_tickets_tab']                   = 'Tickets';
+$lang['contracts_notes_tab']                     = 'Notes';
+$lang['note_description']                        = 'Note description';
+$lang['operator_do_not_send_welcome_email']        = 'Do not send welcome email';
+$lang['operators_notes_table_description_heading'] = 'Description';
+$lang['operators_notes_table_addedfrom_heading']   = 'Added From';
+$lang['operators_notes_table_dateadded_heading']   = 'Date Added';
+$lang['operators_list_full_name']                  = 'Full Name';
+$lang['operators_list_last_login']                 = 'Last Login';
 
 # Contracts
 $lang['contracts']                = 'Contracts';
@@ -139,6 +176,7 @@ $lang['email_templates_lowercase']              = 'email templates';
 $lang['email_template_ticket_fields_heading']   = 'Tickets';
 $lang['email_template_invoices_fields_heading'] = 'Invoices';
 $lang['email_template_clients_fields_heading']  = 'Customers';
+$lang['email_template_operators_fields_heading']  = 'Operators';
 
 $lang['template_name']                = 'Template Name';
 $lang['template_subject']             = 'Subject';
@@ -371,6 +409,7 @@ $lang['project_statuss_dt_name']      = 'Project Status Name';
 $lang['project_status_add_edit_name'] = 'Project Status Name';
 $lang['project_status_edit']  = 'Edit Project Status';
 
+
 # Settings
 $lang['settings']                                                  = 'Settings';
 $lang['settings_updated']                                          = 'Settings Updated';
@@ -381,6 +420,7 @@ $lang['settings_group_tickets']                                    = 'Tickets';
 $lang['settings_group_sales']                                      = 'Finance';
 $lang['settings_group_email']                                      = 'Email';
 $lang['settings_group_clients']                                    = 'Customers';
+$lang['settings_group_operators']                                  = 'Operators';
 $lang['settings_group_newsfeed']                                   = 'News feed';
 $lang['settings_group_cronjob']                                    = 'Cron Job';
 $lang['settings_yes']                                              = 'Yes';
@@ -388,6 +428,9 @@ $lang['settings_no']                                               = 'No';
 $lang['settings_clients_default_theme']                            = 'Default customers theme';
 $lang['settings_clients_allow_registration']                       = 'Allow customers to register';
 $lang['settings_clients_allow_kb_view_without_registration']       = 'Allow knowledge base to be viewed without registration';
+$lang['settings_operators_default_theme']                            = 'Default Operators theme';
+$lang['settings_operators_allow_registration']                       = 'Allow Operators to register';
+$lang['settings_operators_allow_kb_view_without_registration']       = 'Allow knowledge base to be viewed without registration';
 $lang['settings_cron_send_overdue_reminder']                       = 'Send invoice overdue reminder';
 $lang['settings_cron_send_overdue_reminder_tooltip']               = 'Send overdue email to client when invoice status updated to overdue from Cron Job';
 $lang['automatically_send_invoice_overdue_reminder_after']         = 'Auto send reminder after (days)';
@@ -522,6 +565,7 @@ $lang['wd_sunday']    = 'Sunday';
 # Admin Left Sidebar
 $lang['als_dashboard']             = 'Dashboard';
 $lang['als_clients']               = 'Customers';
+$lang['als_operators']               = 'Operators';
 $lang['als_leads']                 = 'Leads';
 $lang['als_contracts']             = 'Contracts';
 $lang['als_sales']                 = 'Sales';
@@ -752,12 +796,19 @@ $lang['nav_notifications_tooltip']  = 'View Notifications';
 
 # Footer
 $lang['clients_copyright'] = 'Copyright %s';
+$lang['operators_copyright'] = 'Copyright %s';
 
 # Contracts
 $lang['clients_contracts']               = 'Contracts';
 $lang['clients_contracts_dt_subject']    = 'Subject';
 $lang['clients_contracts_dt_start_date'] = 'Start Date';
 $lang['clients_contracts_dt_end_date']   = 'End Date';
+
+# Operator # Contracts
+$lang['operators_contracts']               = 'Contracts';
+$lang['operators_contracts_dt_subject']    = 'Subject';
+$lang['operators_contracts_dt_start_date'] = 'Start Date';
+$lang['operators_contracts_dt_end_date']   = 'End Date';
 
 # Home
 $lang['clients_quick_invoice_info']           = 'Quick Invoices Info';
@@ -853,6 +904,101 @@ $lang['clients_nav_kb']        = 'Knowledge Base';
 $lang['clients_nav_profile']   = 'Profile';
 $lang['clients_nav_logout']    = 'Logout';
 
+
+# Home
+$lang['operators_quick_invoice_info']           = 'Quick Invoices Info';
+$lang['operators_home_currency_select_tooltip'] = 'You need to select currency because you have invoices with different currency';
+
+# Invoices
+$lang['operators_invoice_html_btn_download'] = 'Download';
+$lang['operators_my_invoices']               = 'Invoices';
+$lang['operators_invoice_dt_number']         = 'Invoice #';
+$lang['operators_invoice_dt_date']           = 'Date';
+$lang['operators_invoice_dt_duedate']        = 'Due Date';
+$lang['operators_invoice_dt_amount']         = 'Amount';
+$lang['operators_invoice_dt_status']         = 'Status';
+
+# Profile
+$lang['operators_profile_heading'] = 'Profile';
+
+# Used for edit profile and register START
+$lang['operators_firstname'] = 'First Name';
+$lang['operators_lastname']  = 'Last Name';
+$lang['operators_email']     = 'Email Address';
+$lang['operators_company']   = 'Company';
+$lang['operators_vat']       = 'VAT Number';
+$lang['operators_phone']     = 'Phone';
+$lang['operators_country']   = 'Country';
+$lang['operators_city']      = 'City';
+$lang['operators_address']   = 'Address';
+$lang['operators_zip']       = 'Zip Code';
+$lang['operators_state']     = 'State';
+# Used for edit profile and register END
+
+$lang['operators_register_password']                    = 'Password';
+$lang['operators_register_password_repeat']             = 'Repeat Password';
+$lang['operators_edit_profile_update_btn']              = 'Update';
+$lang['operators_edit_profile_change_password_heading'] = 'Change Password';
+$lang['operators_edit_profile_old_password']            = 'Old Password';
+$lang['operators_edit_profile_new_password']            = 'New Password';
+$lang['operators_edit_profile_new_password_repeat']     = 'Repeat Password';
+$lang['operators_edit_profile_change_password_btn']     = 'Change Password';
+$lang['operators_profile_last_changed_password']        = 'Password last changed %s';
+
+# Knowledge base
+$lang['operators_knowledge_base']                    = 'Knowledge Base';
+$lang['operators_knowledge_base_articles_not_found'] = 'No knowledge base articles found';
+$lang['operators_knowledge_base_find_useful']        = 'Did you find this article useful?';
+$lang['operators_knowledge_base_find_useful_yes']    = 'Yes';
+$lang['operators_knowledge_base_find_useful_no']     = 'No';
+$lang['operators_article_only_1_vote_today']         = 'You can vote once in 24 hours';
+$lang['operators_article_voted_thanks_for_feedback'] = 'Thanks for your feedback';
+
+# Tickets
+$lang['operators_ticket_open_subject']               = 'Open Ticket';
+$lang['operators_ticket_open_departments']           = 'Department';
+$lang['operators_tickets_heading']                   = 'Support Tickets';
+$lang['operators_ticket_open_service']               = 'Service';
+$lang['operators_ticket_open_priority']              = 'Priority';
+$lang['operators_ticket_open_body']                  = 'Ticket Body';
+$lang['operators_ticket_attachments']                = 'Attachments';
+$lang['operators_single_ticket_string']              = 'Ticket';
+$lang['operators_single_ticket_replied']             = 'Replied: %s';
+$lang['operators_single_ticket_information_heading'] = 'Ticket Information';
+$lang['operators_tickets_dt_number']                 = 'Ticket #';
+$lang['operators_tickets_dt_subject']                = 'Subject';
+$lang['operators_tickets_dt_department']             = 'Department';
+$lang['operators_tickets_dt_service']                = 'Service';
+$lang['operators_tickets_dt_status']                 = 'Status';
+$lang['operators_tickets_dt_last_reply']             = 'Last Reply';
+$lang['operators_ticket_single_department']          = 'Department: %s';
+$lang['operators_ticket_single_submitted']           = 'Submitted: %s';
+$lang['operators_ticket_single_status']              = 'Status:';
+$lang['operators_ticket_single_priority']            = 'Priority: %s';
+$lang['operators_ticket_single_add_reply_btn']       = 'Add Reply';
+$lang['operators_ticket_single_add_reply_heading']   = 'Add reply to this ticket';
+
+# Login
+$lang['operators_login_heading_no_register'] = 'Please login';
+$lang['operators_login_heading_register']    = 'Please login or register';
+$lang['operators_login_email']               = 'Email Address';
+$lang['operators_login_password']            = 'Password';
+$lang['operators_login_remember']            = 'Remember me';
+$lang['operators_login_login_string']        = 'Login';
+
+# Register
+$lang['operators_register_string']  = 'Register';
+$lang['operators_register_heading'] = 'Register';
+
+# Navigation
+$lang['operators_nav_login']     = 'Login';
+$lang['operators_nav_register']  = 'Register';
+$lang['operators_nav_invoices']  = 'Invoices';
+$lang['operators_nav_contracts'] = 'Contracts';
+$lang['operators_nav_kb']        = 'Knowledge Base';
+$lang['operators_nav_profile']   = 'Profile';
+$lang['operators_nav_logout']    = 'Logout';
+
 # Version 1.0.1
 $lang['payment_receipt']                               = 'Payment Receipt';
 $lang['payment_for_string']                            = 'Payment For';
@@ -929,6 +1075,19 @@ $lang['clients_account_created_but_not_logged_in'] = 'Your account has been crea
 # Tickets
 $lang['clients_tickets_heading'] = 'Support Tickets';
 
+
+## operators
+$lang['operator_phonenumber'] = 'Phone';
+
+# Main operators
+$lang['operators_register']                          = 'Register';
+$lang['operators_profile_updated']                   = 'Your profile has been updated';
+$lang['operators_successfully_registered']           = 'Thank your for registering';
+$lang['operators_account_created_but_not_logged_in'] = 'Your account has been created but you are not logged in our system automatically. Please try to login';
+
+# Tickets
+$lang['operators_tickets_heading'] = 'Support Tickets';
+
 # Payments
 $lang['payment_for_invoice'] = 'Payment for Invoice';
 $lang['payment_total']       = 'Total: %s';
@@ -980,6 +1139,14 @@ $lang['client_zip_status']        = 'Status';
 $lang['client_zip_status_all']    = 'All';
 $lang['client_zip_payment_modes'] = 'Payment made by';
 $lang['client_zip_no_data_found'] = 'No %s found';
+
+$lang['operator_zip_payments']      = 'ZIP Payments';
+$lang['operator_zip_invoices']      = 'ZIP Invoices';
+$lang['operator_zip_estimates']     = 'ZIP Estimates';
+$lang['operator_zip_status']        = 'Status';
+$lang['operator_zip_status_all']    = 'All';
+$lang['operator_zip_payment_modes'] = 'Payment made by';
+$lang['operator_zip_no_data_found'] = 'No %s found';
 
 # Payments
 $lang['payment_mode']         = 'Payment Mode';
@@ -1088,6 +1255,7 @@ $lang['estimate_convert_to_invoice']              = 'Convert to Invoice';
 
 # Clients
 $lang['client_payments_tab'] = 'Payments';
+$lang['operator_payments_tab'] = 'Payments';
 
 # Estimate General
 $lang['estimate_pdf_heading']            = 'ESTIMATE';
@@ -1126,6 +1294,22 @@ $lang['clients_estimate_accepted_not_invoiced'] = 'Thank you for accepting this 
 $lang['clients_estimate_declined']              = 'Estimate declined. You can accept the estimate any time before expiry date';
 $lang['clients_estimate_failed_action']         = 'Failed to take action on this estimate';
 $lang['client_add_edit_profile']                = 'Profile';
+
+## operators
+$lang['operators_estimate_dt_number']             = 'Estimate #';
+$lang['operators_estimate_dt_date']               = 'Date';
+$lang['operators_estimate_dt_duedate']            = 'Expiry Date';
+$lang['operators_estimate_dt_amount']             = 'Amount';
+$lang['operators_estimate_dt_status']             = 'Status';
+$lang['operators_nav_estimates']                  = 'Estimates';
+$lang['operators_decline_estimate']               = 'Decline';
+$lang['operators_accept_estimate']                = 'Accept';
+$lang['operators_my_estimates']                   = 'Estimates';
+$lang['operators_estimate_invoiced_successfully'] = 'Thank you for accepting the estimate. Please review the created invoice for the estimate';
+$lang['operators_estimate_accepted_not_invoiced'] = 'Thank you for accepting this estimate';
+$lang['operators_estimate_declined']              = 'Estimate declined. You can accept the estimate any time before expiry date';
+$lang['operators_estimate_failed_action']         = 'Failed to take action on this estimate';
+$lang['operator_add_edit_profile']                = 'Profile';
 
 # Custom Fields
 $lang['custom_field']                          = 'Custom field';
@@ -1173,6 +1357,14 @@ $lang['customers_summary']                 = 'Customers Summary';
 $lang['customers_summary_active']          = 'Active Contacts';
 $lang['customers_summary_inactive']        = 'Inactive Contacts';
 $lang['customers_summary_logged_in_today'] = 'Contacts Logged In Today';
+
+# operators
+$lang['operators_list_phone']                = 'Phone';
+$lang['operator_expenses_tab']               = 'Expenses';
+$lang['operators_summary']                 = 'operators Summary';
+$lang['operators_summary_active']          = 'Active Contacts';
+$lang['operators_summary_inactive']        = 'Inactive Contacts';
+$lang['operators_summary_logged_in_today'] = 'Contacts Logged In Today';
 
 # Authentication
 $lang['admin_auth_forgot_password_email']     = 'Email Address';
@@ -1348,6 +1540,7 @@ $lang['nav_todo_items'] = 'Todo items';
 
 # Contracts
 $lang['clients_contracts_type'] = 'Contract Type';
+$lang['operators_contracts_type'] = 'Contract Type';
 
 # Version 1.0.5
 # General
@@ -1386,6 +1579,7 @@ $lang['is_invoiced_estimate_delete_error'] = 'This estimate is invoiced. You can
 # Customers & Invoices / Estimates
 $lang['ship_to']                            = 'Ship to';
 $lang['customer_profile_details']           = 'Customer Details';
+$lang['operator_profile_details']           = 'Operator Details';
 $lang['billing_shipping']                   = 'Billing & Shipping';
 $lang['billing_address']                    = 'Billing Address';
 $lang['shipping_address']                   = 'Shipping Address';
@@ -1408,14 +1602,18 @@ $lang['customer_update_address_info_on_invoices_help']         = 'If you check t
 $lang['setup_google_api_key_customer_map']                     = 'Setup google api key in order to view to customer map';
 $lang['customer_attachments_file']                             = 'File';
 $lang['client_send_set_password_email']                        = 'Send SET password email';
+$lang['operator_send_set_password_email']                        = 'Send SET password email';
 $lang['customer_billing_same_as_profile']                      = 'Same as Customer Info';
+$lang['operator_billing_same_as_profile']                      = 'Same as Operator Info';
 $lang['customer_billing_copy']                                 = 'Copy Billing Address';
+$lang['operator_billing_copy']                                 = 'Copy Billing Address';
 $lang['customer_map']                                          = 'Map';
 $lang['set_password_email_sent_to_client']                     = 'Email to set password is successfully sent to contact';
 $lang['set_password_email_sent_to_client_and_profile_updated'] = 'Profile updated and email to set password is successfully sent to contact';
 $lang['customer_attachments']                                  = 'Files';
 $lang['customer_longitude']                                    = 'Longitude (Google Maps)';
 $lang['customer_latitude']                                     = 'Latitude (Google Maps)';
+$lang['operator_name']                                         = 'Operator Name';
 
 # Authentication
 $lang['admin_auth_set_password']         = 'Password';
@@ -1542,6 +1740,9 @@ $lang['bulk_export_include_tag_help']  = 'eq. Original or Copy. The tag will be 
 $lang['clients_nav_proposals'] = 'Proposals';
 $lang['clients_nav_support']   = 'Support';
 
+$lang['operators_nav_proposals'] = 'Proposals';
+$lang['operators_nav_support']   = 'Support';
+
 # General
 $lang['more']            = 'More';
 $lang['add_item']        = 'Add Item';
@@ -1577,6 +1778,7 @@ $lang['import_upload_failed']        = 'Upload Failed';
 $lang['import_total_imported']       = 'Total Imported: %s';
 $lang['import_leads']                = 'Import Leads';
 $lang['import_customers']            = 'Import Customers';
+$lang['import_operators']            = 'Import Operators';
 $lang['choose_csv_file']             = 'Choose CSV File';
 $lang['import']                      = 'Import';
 $lang['lead_import_status']          = 'Status';
@@ -1731,6 +1933,7 @@ $lang['customer_group_edit_heading']     = 'Edit Customer Group';
 $lang['new_customer_group']              = 'New Customer Group';
 $lang['customer_group_name']             = 'Name';
 $lang['customer_groups']                 = 'Groups';
+$lang['operator_groups']                 = 'Groups';
 $lang['customer_group']                  = 'Customer Group';
 $lang['customer_group_lowercase']        = 'customer group';
 $lang['customer_have_invoices_by']       = 'Contains invoices by status %s';
@@ -1973,6 +2176,7 @@ $lang['zip_estimates']        = 'Zip Estimates';
 $lang['zip_payments']         = 'Zip Payments';
 $lang['setup_help']           = 'Help';
 $lang['clients_list_company'] = 'Company';
+$lang['operators_list_company'] = 'Company';
 $lang['dt_button_export']     = 'Export';
 $lang['dt_entries']           = 'entries';
 $lang['invoice_total_paid']   = 'Total Paid';
@@ -2220,6 +2424,13 @@ $lang['client_no_reply']                                       = 'No Reply';
 $lang['clients_nav_projects']                                  = 'Projects';
 $lang['clients_my_projects']                                   = 'Projects';
 $lang['client_profile_image']                                  = 'Profile image';
+
+$lang['operators_my_estimates']                                  = 'Estimates';
+$lang['operator_no_reply']                                       = 'No Reply';
+$lang['operators_nav_projects']                                  = 'Projects';
+$lang['operators_my_projects']                                   = 'Projects';
+$lang['operator_profile_image']                                  = 'Profile image';
+
 $lang['sales_report_cancelled_invoices_not_included']          = 'Cancelled invoices are excluded from the report';
 $lang['invoices_merge_cancel_merged_invoices']                 = 'Mark merged invoices as cancelled instead of deleting';
 $lang['invoice_marked_as_cancelled_successfully']              = 'Invoice marked as cancelled successfully';
@@ -2291,6 +2502,7 @@ $lang['receive_notification_on_new_ticket']      = 'Receive notification on new 
 $lang['receive_notification_on_new_ticket_help'] = 'All staff members which belong to the ticket department will receive notification that new ticket is opened';
 $lang['event_updated']                           = 'Event updated successfully';
 $lang['customer_contacts']                       = 'Contacts';
+$lang['operator_contacts']                       = 'Contacts';
 $lang['new_contact']                             = 'New Contact';
 $lang['contact']                                 = 'Contact';
 $lang['contact_lowercase']                       = 'contact';
@@ -2359,6 +2571,7 @@ $lang['client_password_changed']             = 'Your password has been changed';
 # Version 1.1.4
 $lang['total_leads_deleted']                              = 'Total leads deleted: %s';
 $lang['total_clients_deleted']                            = 'Total customers deleted: %s';
+$lang['total_operators_deleted']                            = 'Total customers deleted: %s';
 $lang['confirm_action_prompt']                            = 'Are you sure you want to perform this action?';
 $lang['mass_delete']                                      = 'Mass Delete';
 $lang['email_protocol']                                   = 'Email Protocol';
@@ -2397,6 +2610,7 @@ $lang['expense_paid_via']                                 = 'Paid Via %s';
 $lang['item_as_expense']                                  = '[Expense]';
 $lang['show_help_on_setup_menu']                          = 'Show help menu item on setup menu';
 $lang['customers_summary_total']                          = 'Total Customers';
+$lang['operators_summary_total']                          = 'Total Operators';
 $lang['filter_by']                                        = 'Filter by';
 $lang['re_captcha']                                       = 'reCAPTCHA';
 $lang['recaptcha_site_key']                               = 'Site key';
@@ -2424,6 +2638,7 @@ $lang['report_expenses_base_currency_select_explanation'] = 'You need to select 
 # Version 1.1.6
 $lang['project_activity_recorded_expense']   = 'Recorded Expense';
 $lang['save_customer_and_add_contact']       = 'Save and create contact';
+$lang['save_operator_and_add_contact']       = 'Save and create contact';
 $lang['tickets_chart_weekly_opening_stats']  = 'Weekly Stats';
 $lang['related_knowledgebase_articles']      = 'Related Articles';
 $lang['detailed_overview']                   = 'Tasks Overview';
@@ -2543,8 +2758,10 @@ $lang['project_tickets']                        = 'Tickets';
 $lang['invoice_report']                         = 'Invoices Report';
 $lang['payment_modes_report']                   = 'Payment Modes (Transactions)';
 $lang['customer_admins']                        = 'Customer Admins';
+$lang['operator_admins']                        = 'Operator Admins';
 $lang['assign_admin']                           = 'Assign Admin';
 $lang['customer_admin_date_assigned']           = 'Date Assigned';
+$lang['operator_admin_date_assigned']           = 'Date Assigned';
 $lang['customer_admin_login_as_client_message'] = 'Hello %s. You are added as admin to this customer.';
 $lang['ticket_form_validation_file_size']       = 'File size must be less than %s';
 $lang['has_transactions_currency_base_change']  = 'Changing the base currency is possible only if there are no transactions recorded in that currency. Delete the transactions to change the base currency';
@@ -2716,6 +2933,7 @@ $lang['dropbox_app_key']                                    = 'Dropbox APP Key';
 $lang['project_invoice_select_all_expenses']                = 'Select all expenses';
 $lang['role_update_staff_permissions']                      = 'Update all staff members permissions that are using this role';
 $lang['customer_active']                                    = 'Active';
+$lang['operator_active']                                    = 'Active';
 $lang['note_updated_successfully']                          = 'Note updated successfully';
 $lang['update_note']                                        = 'Update note';
 $lang['update_comment']                                     = 'Update comment';
@@ -2751,6 +2969,7 @@ $lang['bulk_action_customers_groups_warning']        = 'If you do not select any
 $lang['customer_attachments_show_in_customers_area'] = 'Show to customers area';
 $lang['customer_attachments_show_notice']            = 'Only files uploaded from customer profile have ability to show/hide in customers area.';
 $lang['customer_profile_files']                      = 'Files';
+$lang['operator_profile_files']                      = 'Files';
 $lang['no_files_found']                              = 'No Files Found';
 $lang['custom_field_column']                         = 'Grid (Bootstrap Column eq. 12) - Max is 12';
 $lang['task_status']                                 = 'Status';
@@ -2824,6 +3043,8 @@ $lang['mark_as_active']                          = 'Mark as active';
 $lang['customer_inactive_message']               = 'This is inactive customer profile and some features may be disabled';
 $lang['active_customers']                        = 'Active Customers';
 $lang['inactive_active_customers']               = 'Inactive Customers';
+$lang['active_operators']                        = 'Active Operators';
+$lang['inactive_active_operators']               = 'Inactive Operators';
 $lang['include_proposal_items_merge_field_help'] = 'Include proposal items with merge field anywhere in proposal content as %s';
 $lang['all_data_synced_successfully']            = 'All data synced successfully';
 $lang['sync_now']                                = 'Sync Now';
@@ -2839,6 +3060,7 @@ $lang['expense_include_additional_data_on_convert'] = 'Include additional detail
 $lang['calendar_events_limit']                              = 'Calendar Events Limit (Month and Week View)';
 $lang['show_page_number_on_pdf']                            = 'Show page number on PDF';
 $lang['customer_active_inactive_help']                      = 'Won\'t be shown in dropdowns when creating new records';
+$lang['operator_active_inactive_help']                      = 'Won\'t be shown in dropdowns when creating new records';
 $lang['item_groups']                                        = 'Groups';
 $lang['item_group']                                         = 'Item Group';
 $lang['item_group_name']                                    = 'Group Name';
@@ -2927,6 +3149,7 @@ $lang['have_a_question']                   = 'Have a question?';
 $lang['card_expiration_year']              = 'Expiration Year';
 $lang['card_expiration_month']             = 'Expiration Month';
 $lang['client_website']                    = 'Website';
+$lang['operator_website']                    = 'Website';
 $lang['search_project_members']            = 'Search Project Members...';
 $lang['cf_translate_input_link_title']     = 'Title';
 $lang['cf_translate_input_link_url']       = 'URL';
@@ -3264,6 +3487,7 @@ $lang['show_total_paid_on_invoice']                              = 'Show Total P
 $lang['show_credits_applied_on_invoice']                         = 'Show Credits Applied On Invoice';
 $lang['show_amount_due_on_invoice']                              = 'Show Amount Due On Invoice';
 $lang['customer_profile_update_credit_notes']                    = 'Update the shipping/billing info on all previous credit notes (Closed credit notes not affected)';
+$lang['operator_profile_update_credit_notes']                    = 'Update the shipping/billing info on all previous credit notes (Closed credit notes not affected)';
 $lang['zip_credit_notes']                                        = 'Zip Credit Notes';
 $lang['statement_credit_note_details']                           = 'Credit Note %s';
 $lang['statement_credits_applied_details']                       = 'Credits Applied from Credit Note %s - %s for payment of %s';

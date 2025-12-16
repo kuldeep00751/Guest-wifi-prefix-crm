@@ -50,7 +50,7 @@ class CustomerProfileBadges
     public function contacts()
     {
         $this->CI->db->where('userid', $this->customerId);
-
+        $this->CI->db->where('usertype', 'clients');
         return $this->CI->db->count_all_results('contacts');
     }
 

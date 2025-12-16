@@ -59,10 +59,11 @@ class Clients_model extends App_Model
      * @param  array $whereIn     perform whereIn query
      * @return array
      */
-    public function get_contacts($customer_id = '', $where = ['active' => 1], $whereIn = [])
+    public function get_contacts($customer_id = '', $where = ['active' => 1], $whereIn = [], $usertype="clients")
     {
         $this->db->where($where);
         if ($customer_id != '') {
+            $this->db->where('usertype', $usertype);
             $this->db->where('userid', $customer_id);
         }
 

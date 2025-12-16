@@ -25,6 +25,18 @@ class App_tabs
         return $this->get('customer_profile');
     }
 
+
+    public function add_operator_profile_tab($slug, $tab)
+    {
+        $this->add($slug, $tab, 'operator_profile');
+        
+        return $this;
+    }
+
+    public function get_operator_profile_tabs()
+    {
+        return $this->get('operator_profile');
+    }
     public function add_project_tab($slug, $tab)
     {
         $this->add($slug, $tab, 'project');

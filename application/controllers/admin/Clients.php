@@ -596,6 +596,7 @@ class Clients extends AdminController
     {
         $this->app->get_table_data('contacts', [
             'client_id' => $client_id,
+            'usertype' => 'clients',
         ]);
     }
 

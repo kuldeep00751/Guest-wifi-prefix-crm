@@ -22,6 +22,7 @@ hooks()->add_action('database_updated', 'app_set_update_message_info');
 hooks()->add_action('before_update_database', 'app_set_pipe_php_permissions');
 hooks()->add_action('admin_init', 'app_init_admin_sidebar_menu_items');
 hooks()->add_action('admin_init', 'app_init_customer_profile_tabs');
+hooks()->add_action('admin_init', 'app_init_operator_profile_tabs');
 hooks()->add_action('admin_init', 'app_init_project_tabs');
 hooks()->add_action('admin_init', 'app_init_settings_tabs');
 hooks()->add_action('admin_init', '_maybe_set_identification_key');
@@ -29,6 +30,7 @@ hooks()->add_action('admin_init', '_maybe_set_identification_key');
 if (get_instance()->config->item('csrf_protection')) {
     hooks()->add_action('app_admin_head', 'csrf_jquery_token');
     hooks()->add_action('app_customers_head', 'csrf_jquery_token');
+    hooks()->add_action('app_operators_head', 'csrf_jquery_token');
     hooks()->add_action('app_external_form_head', 'csrf_jquery_token');
     hooks()->add_action('elfinder_tinymce_head', 'csrf_jquery_token');
 }

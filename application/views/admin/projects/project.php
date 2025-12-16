@@ -328,7 +328,25 @@
                            value="<?= isset($project) ? prep_tags_input(get_tags_in($project->id, 'project')) : ''; ?>"
                            data-role="tagsinput">
                      </div>
-                     <?php $rel_id_custom_field = (isset($project) ? $project->id : false); ?>
+                     <div class="col-md-6" style="padding-left: 0px;">
+                            <label for="operator_name" class="control-label"><?= _l('operator_name'); ?></label>
+                            <select id="operator_name" name="operator_name"
+                                class="selectpicker"
+                                data-live-search="true"
+                                data-width="100%"
+                                data-none-selected-text="<?= _l('dropdown_non_selected_tex'); ?>">
+                                <option value="" <?= empty($selected) ? 'selected' : ''; ?>></option>
+                                <?php 
+                                $selected = isset($project) ? $project->operator_name : ($operator_name ?? '');
+
+                                foreach ($operators as $value) {
+                                    $sel = ($selected == $value['userid']) ? 'selected' : '';
+                                    echo '<option value="'.$value['userid'].'" '.$sel.'>'.$value['company'].'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                     <?php $rel_id_custom_field = (isset($project) ? $project->id : false);?>
                      <?= render_custom_fields('projects', $rel_id_custom_field); ?>
                      <div class="row">   
                         <div class="col-md-12 form-group" style="background: #d6eaed8c;">

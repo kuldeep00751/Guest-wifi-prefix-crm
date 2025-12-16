@@ -488,3 +488,31 @@ function total_project_finished_tasks_by_milestone($milestone_id, $project_id)
         'milestone' => $milestone_id,
     ]);
 }
+
+// function sync_operator_to_project_custom_field()
+// {
+//     $CI =& get_instance();
+
+//     // Get operators
+//     $operators = $CI->db
+//         ->select('userid, company')
+//         ->get(db_prefix().'operators')
+//         ->result_array();
+
+//     if (!$operators) {
+//         return;
+//     }
+
+//     // Add empty option first
+//     $options = [];
+
+//     foreach ($operators as $op) {
+//         $options[] = '<option>'.$op['company'].'</option>';
+//     }
+    
+//     // Update Project custom field options
+//     $CI->db->where('slug', 'projects_internet_link');
+//     $CI->db->update(db_prefix().'customfields', [
+//         'options' => implode("\n", $options)
+//     ]);
+// }

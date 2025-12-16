@@ -150,6 +150,7 @@ function filter_client_visible_tabs($tabs, $id = '')
     $appliedSettings = is_array($visible);
 
     foreach ($tabs as $key => $tab) {
+        
         // Check visibility from settings too
         if ($key != 'profile' && $key != 'contacts' && $appliedSettings) {
             if (array_key_exists($key, $visible) && $visible[$key] == false) {

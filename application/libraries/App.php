@@ -56,6 +56,7 @@ class App
         'credit_note',
         'ticket',
         'task',
+        'operator'
     ];
 
     /**
@@ -534,6 +535,10 @@ class App
             ],
             [
                 'table' => db_prefix() . 'clients',
+                'field' => 'default_currency',
+            ],
+            [
+                'table' => db_prefix() . 'operators',
                 'field' => 'default_currency',
             ],
             [

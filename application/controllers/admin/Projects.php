@@ -13,6 +13,7 @@ class Projects extends AdminController
         parent::__construct();
         $this->load->model('projects_model');
         $this->load->model('currencies_model');
+        $this->load->model('operators_model');
         $this->load->helper('date');
     }
 
@@ -73,6 +74,8 @@ class Projects extends AdminController
 
     public function project($id = '')
     {
+        
+
         if (staff_cant('edit', 'projects') && staff_cant('create', 'projects')) {
             access_denied('Projects');
         }
@@ -130,7 +133,7 @@ class Projects extends AdminController
         $data['settings'] = $this->projects_model->get_settings();
         $data['statuses'] = $this->projects_model->get_project_statuses();
         $data['staff']    = $this->staff_model->get('', ['active' => 1]);
-
+        $data['operators'] = $this->operators_model->get();
         $data['title'] = $title;
         
         $data['countries'] = get_all_countries();

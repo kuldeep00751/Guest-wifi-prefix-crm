@@ -9,6 +9,7 @@ class ProjectMaster extends AdminController
         parent::__construct();
         $this->load->model('projects_status_model');
         $this->load->model('projects_types_model');
+        $this->load->model('operators_model');
     }
 
     // ============================================
@@ -157,4 +158,6 @@ class ProjectMaster extends AdminController
 
         redirect(admin_url('ProjectMaster/project_types'));
     }
+
+
 }

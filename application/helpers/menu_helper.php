@@ -28,6 +28,19 @@ function app_init_admin_sidebar_menu_items()
         ]);
     }
 
+    if (
+        staff_can('view',  'operators')
+        || (have_assigned_operators()
+            || (!have_assigned_operators() && staff_can('create',  'operators')))
+    ) {
+        $CI->app_menu->add_sidebar_menu_item('operators', [
+            'name'     => _l('Operators'),
+            'href'     => admin_url('operators'),
+            'position' => 5,
+            'icon'     => 'fa-regular fa-user',
+            'badge'    => [],
+        ]);
+    }
     $CI->app_menu->add_sidebar_menu_item('sales', [
         'collapse' => true,
         'name'     => _l('als_sales'),
